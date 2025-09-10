@@ -1,0 +1,115 @@
+
+CPPTRAJ: Trajectory Analysis. V18.01
+    ___  ___  ___  ___
+     | \/ | \/ | \/ | 
+    _|_/\_|_/\_|_/\_|_
+
+| Date/time: 04/03/20 08:43:42
+| Available memory: 58.368 GB
+
+	Reading 'p53_polII2.prmtop' as Amber Topology
+	Radius Set: modified Bondi radii (mbondi)
+INPUT: Reading input from 'STDIN'
+  [parm p53_polII2.prmtop]
+Warning: Topology 'p53_polII2.prmtop' already present.
+Warning:   To load the same topology file multiple times use tags,
+Warning:   e.g. `parm <file> [tag]`.
+  [trajin prod1.mdcrd]
+	Reading 'prod1.mdcrd' as Amber NetCDF
+  [strip :WAT]
+    STRIP: Stripping atoms in mask [:WAT]
+  [strip :K+]
+    STRIP: Stripping atoms in mask [:K+]
+  [strip :Na+]
+    STRIP: Stripping atoms in mask [:Na+]
+  [strip :Cl-]
+    STRIP: Stripping atoms in mask [:Cl-]
+  [unwrap :1-4342]
+    UNWRAP: By atom using mask ':1-4342'
+	Reference is first frame.
+  [reference min2.restrt]
+	Reading 'min2.restrt' as Amber NC Restart
+	Setting active reference for distance-based masks: 'min2.restrt'
+  [rmsd all reference :1-4342&!@H= out rmsd_all_pdb.dat]
+    RMSD: (:1-4342&!@H*), reference is "default_name" (:1-4342&!@H*).
+	Best-fit RMSD will be calculated, coords will be rotated and translated.
+  [go]
+---------- RUN BEGIN -------------------------------------------------
+
+PARAMETER FILES (1 total):
+ 0: p53_polII2.prmtop, 506660 atoms, 150673 res, box: Orthogonal, 146355 mol, 145179 solvent
+
+INPUT TRAJECTORIES (1 total):
+ 0: 'prod1.mdcrd' is a NetCDF AMBER trajectory with coordinates, time, box, Parm p53_polII2.prmtop (Orthogonal box) (reading 10000 of 10000)
+  Coordinate processing will occur on 10000 frames.
+
+REFERENCE FRAMES (1 total):
+    0: min2.restrt:1
+	Active reference frame for distance-based masks is 'default_name'
+
+BEGIN TRAJECTORY PROCESSING:
+.....................................................
+ACTION SETUP FOR PARM 'p53_polII2.prmtop' (6 actions):
+  0: [strip :WAT]
+	Stripping 435537 atoms.
+	Stripped topology: 71123 atoms, 5494 res, box: Orthogonal, 1176 mol
+  1: [strip :K+]
+	Stripping 0 atoms.
+Warning: No atoms to strip. Skipping 'strip' for topology 'p53_polII2.prmtop'
+Warning: Setup incomplete for [strip]: Skipping
+  2: [strip :Na+]
+	Stripping 617 atoms.
+	Stripped topology: 70506 atoms, 4877 res, box: Orthogonal, 559 mol
+  3: [strip :Cl-]
+	Stripping 535 atoms.
+	Stripped topology: 69971 atoms, 4342 res, box: Orthogonal, 24 mol
+  4: [unwrap :1-4342]
+	Mask [:1-4342] corresponds to 69971 atoms.
+	Number of atoms to be unwrapped is 69971
+  5: [rmsd all reference :1-4342&!@H= out rmsd_all_pdb.dat]
+	Target mask: [:1-4342&!@H*](35203)
+	Reference mask: [:1-4342&!@H*](35203)
+Warning: Coordinates are being rotated and box coordinates are present.
+Warning: Unit cell vectors are NOT rotated; imaging will not be possible
+Warning:  after the RMS-fit is performed.
+----- prod1.mdcrd (1-10000, 1) -----
+ 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100% Complete.
+
+Read 10000 frames and processed 10000 frames.
+TIME: Avg. throughput= 5.3926 frames / second.
+
+ACTION OUTPUT:
+TIME: Analyses took 0.0000 seconds.
+
+DATASETS (1 total):
+	all "all" (double, rms), size is 10000
+
+DATAFILES (1 total):
+  rmsd_all_pdb.dat (Standard Data File):  all
+
+RUN TIMING:
+TIME:		Init               : 0.0000 s (  0.00%)
+TIME:		Trajectory Process : 1854.4076 s (100.00%)
+TIME:		Action Post        : 0.0000 s (  0.00%)
+TIME:		Analysis           : 0.0000 s (  0.00%)
+TIME:		Data File Write    : 0.0326 s (  0.00%)
+TIME:		Other              : 0.0227 s (  0.00%)
+TIME:	Run Total 1854.4629 s
+---------- RUN END ---------------------------------------------------
+TIME: Total execution time: 1855.4906 seconds.
+--------------------------------------------------------------------------------
+To cite CPPTRAJ use:
+Daniel R. Roe and Thomas E. Cheatham, III, "PTRAJ and CPPTRAJ: Software for
+  Processing and Analysis of Molecular Dynamics Trajectory Data". J. Chem.
+  Theory Comput., 2013, 9 (7), pp 3084-3095.
+
+# 04/03/20 13:25:28
+# -p p53_polII2.prmtop
+# Loaded topologies:
+#   p53_polII2.prmtop
+trajin prod1.mdcrd 10000 10000 1
+strip :WAT,Na+,Cl-
+trajin test_10000.pdb pdb
+trajout test_10000.pdb pdb
+go
+exit

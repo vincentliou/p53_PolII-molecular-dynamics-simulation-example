@@ -1,0 +1,10 @@
+parm p53_polII2.prmtop
+trajin prod1.mdcrd 
+strip :WAT
+strip :K+
+strip :Na+
+strip :Cl-
+unwrap :1-4342
+reference min2.restrt
+rmsd all reference :1-4342&!@H= out rmsd_all_pdb.dat
+go

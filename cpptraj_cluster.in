@@ -1,0 +1,12 @@
+#without water and ions
+parm p53_polII2.prmtop
+trajin prod1.mdcrd 1 10000 2#format need to be trajectory
+strip :WAT
+strip :K+
+strip :Na+
+center :1-4342 origin
+image origin center familiar
+reference min2.restrt
+#rms reference mass out S4_8OG_rms.dat :406 & !@H=
+#cluster out 1tqn_SF representative pdb average pdb all amber sieve 5 clusters 5 epsilon 1.0 rms averagelinkage :1-473 & !@H=
+cluster :1-4342&!@H= clusters 5 averagelinkage epsilon 3.0 out clusterout p53_polII2_DNA_1st clusterfmt pdb info p53_polII2_DNA_1st.info repout p53_polII2_DNA_1st repfmt pdb

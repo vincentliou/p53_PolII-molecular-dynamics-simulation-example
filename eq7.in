@@ -1,0 +1,13 @@
+
+&cntrl
+ imin=0, irest=1, ntx=7, !No minimise, no restart, no vels 
+ nstlim=10000, dt=0.002, !10,000 steps of 0.002ps
+ ntf=2, ntc=2, iwrap=1, !Set SHAKE to constrain H
+ temp0=300.0, !Set temp
+ ntpr=500, ntwx=500, !Write energy and coordinates every 500 steps
+ ntwr=5000, !Write restart every 10000 steps 
+ ntb=2, ntp=1, pres0=1.0, taup=2.0, !PBCs auto ntb, pressure scaling,
+ ntt=3, gamma_ln=2.0, ig=-1, !Langevin dynamics, collision freq, random seed       
+ cut=10.0, !Set nonbond cutoff t 9.0A
+ ntr=1, restraintmask=':1-4342 & @CA,C,O,N,NA,NB,NC,ND,CHA,CHB,CHC,CHD,FE,C1C,C4C,C1D,C4D,C1A,C4A,C1B,C4B,S1,S2,CA1,CA2,CA3,CA4,CA5,CA6,CA7,CA8,CA9,CA0', restraint_wt=0.1, !Apply restraint
+/
