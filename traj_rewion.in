@@ -1,0 +1,11 @@
+parm p53_polII2.prmtop
+#fixatomorder outprefix reordered 
+trajin prod1.mdcrd 
+strip :WAT
+strip :K+
+strip :Na+
+strip :Cl-
+parmbox unbox
+#unwrap :1-517
+trajout prod1_nw.mdcrd mdcrd
+go

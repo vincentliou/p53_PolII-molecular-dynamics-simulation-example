@@ -1,0 +1,11 @@
+Input file for running PB and GB
+&general
+   startframe=4200, endframe=4300, interval=5, verbose=1, use_sander=1,
+#   entropy=1,
+/
+&gb
+  igb=2, saltcon=0.150,
+/
+&pb
+  istrng=0.150, inp=1, radiopt=0, 
+/

@@ -1,0 +1,17 @@
+
+&cntrl 
+ imin=0, irest=0, ntx=1, !No minimise, no restart, no vels 
+ nstlim=500000, dt=0.001, !100,000 steps of 0.002ps 
+ ntf=2, ntc=2, !Set SHAKE to constrain H 
+ tempi=0.0, temp0=300.0, !Set initial and final temps 
+ ntpr=100, ntwx=100, !Write energy and coordinates every 500 steps 
+ ntb=1, ntp=0, !PBCs, no pressure scaling, 
+ ntt=3, gamma_ln=10.0, ig=-1, !Langevin dynamics, collision freq, random seed 
+ nmropt=1, !Use restraints
+ cut=10.0, !Set nonbond cutoff to 9.0A 
+ vlimit=20,
+ ntr=1, iwrap=1, restraintmask=':1-4342 & @CA,C,O,N,NA,NB,NC,ND,CHA,CHB,CHC,CHD,FE,C1C,C4C,C1D,C4D,C1A,C4A,C1B,C4B,S1,S2,CA1,CA2,CA3,CA4,CA5,CA6,CA7,CA8,CA9,CA0', restraint_wt=25.0, !Apply restraint to solute 
+/ 
+&wt type='TEMP0', istep1=0, istep2=400000, value1=0.0, value2=300.0 / 
+&wt type='TEMP0', istep1=400001, istep2=500000, value1=300.0, value2=300.0 / 
+&wt type='END' /

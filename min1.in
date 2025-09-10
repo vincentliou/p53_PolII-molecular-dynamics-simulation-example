@@ -1,0 +1,8 @@
+
+&cntrl
+imin=1, !minimise, no restart, no vels 
+maxcyc=10000, ncyc=8000, !steepest followed by conjugated gradient minimisation 
+ntb=1, !PBCs 
+ntr=1, restraintmask=':1-4542', restraint_wt=100.0, !apply restraint mask 
+cut=10.0, !set nonbond cutoff at 9.0A 
+/
